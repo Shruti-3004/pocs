@@ -1,0 +1,46 @@
+# filepath: 
+#     folder: doc 
+#     filename: one.pdf
+# document_type: 
+#     document: invoice
+#     image: payslip
+# field_type: address
+# file_type: document
+DOCPROCESSING: 
+  field_type: all
+  file_type: document 
+  document_type: invoice
+  preprocessing: 
+    value: True
+    configs: 
+      default: config
+      # config1: 
+      #   dpi: 600
+      #   BGR2RGB: True 
+      #   page_block: True 
+      config2:
+        dpi: 600
+        BGR2RGB: True 
+      # config1:
+      #     dpi: 600
+      #     threshold:
+      #     gaussian_blur:
+      #     # page_block: True
+          
+  psm: 
+    - 3
+    - 4
+  line_items: False 
+  engine: tesseract
+  page_number: all 
+  documents_path: ..\documents
+  document_images_path: ..\images
+  processed_images_path: ..\preprocess
+  images_output: ..\ocr_output
+  json_output: ..\json_output
+  preprocessing_tool: opencv
+  postprocess_output: ..\postprocess_output
+  evaluation: ensemble_evaluation_output
+  ensemble_text_output: ..\ensemble_text_output
+  delimiter_images: ..\delimiter_images
+  postprocessing: NER  
